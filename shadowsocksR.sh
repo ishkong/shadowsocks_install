@@ -387,7 +387,9 @@ config_shadowsocks(){
     "redirect":"",
     "dns_ipv6":false,
     "fast_open":false,
-    "workers":1
+    "workers":1,
+    "speed_limit_per_user":0,
+    "speed_limit_per_con":0
 }
 EOF
 }
