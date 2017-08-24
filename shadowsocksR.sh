@@ -183,9 +183,8 @@ pre_install(){
         exit 1
     fi
     # Set ShadowsocksR config password
-    echo "Please input password for ShadowsocksR:"
-    read -p "(Default password: teddysun.com):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="teddysun.com"
+    echo "Default password: shkong.cc(Please use SWEB to change it)"
+    shadowsockspwd="shkong.cc"
     echo
     echo "---------------------------"
     echo "password = ${shadowsockspwd}"
@@ -194,9 +193,8 @@ pre_install(){
     # Set ShadowsocksR config port
     while true
     do
-    echo -e "Please input port for ShadowsocksR [1-65535]:"
-    read -p "(Default port: 8989):" shadowsocksport
-    [ -z "${shadowsocksport}" ] && shadowsocksport="8989"
+    echo -e "Default port: 23333(Please use SWEB to change it)"
+    shadowsocksport="23333"
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
         if [ ${shadowsocksport} -ge 1 ] && [ ${shadowsocksport} -le 65535 ]; then
@@ -222,8 +220,8 @@ pre_install(){
         hint="${ciphers[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    read -p "Which cipher you'd select(Default: ${ciphers[1]}):" pick
-    [ -z "$pick" ] && pick=2
+    echo -e "Default:${ciphers[1]} "
+    pick=2
     expr ${pick} + 1 &>/dev/null
     if [ $? -ne 0 ]; then
         echo -e "[${red}Error${plain}] Input error, please input a number"
@@ -250,8 +248,8 @@ pre_install(){
         hint="${protocols[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    read -p "Which protocol you'd select(Default: ${protocols[0]}):" protocol
-    [ -z "$protocol" ] && protocol=1
+    echo -e "Default: ${protocols[5]}"
+    protocol=6
     expr ${protocol} + 1 &>/dev/null
     if [ $? -ne 0 ]; then
         echo -e "[${red}Error${plain}] Input error, please input a number"
@@ -278,8 +276,8 @@ pre_install(){
         hint="${obfs[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    read -p "Which obfs you'd select(Default: ${obfs[0]}):" r_obfs
-    [ -z "$r_obfs" ] && r_obfs=1
+    echo -e "Default: ${obfs[5]"
+    r_obfs=6
     expr ${r_obfs} + 1 &>/dev/null
     if [ $? -ne 0 ]; then
         echo -e "[${red}Error${plain}] Input error, please input a number"
